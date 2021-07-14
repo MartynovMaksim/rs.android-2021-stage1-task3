@@ -1,9 +1,25 @@
 package subtask1
 
 class Combinator {
-
-    // TODO: Complete the following function
     fun checkChooseFromArray(array: Array<Int>): Int? {
-        throw NotImplementedError("Not implemented")
+        val m = array[0]
+        val n = array[1]
+        if (m==n) return 1
+        if (m==0) return null
+        val k = factorial(n) / m
+        for (x in 1..(n/2)) {
+            if (k == factorial(x) * factorial(n-x)) {
+                return x
+            }
+        }
+        return null
+    }
+
+    private fun factorial (k: Int): Long {
+        var result = 1L
+        for (i in 1..k) {
+            result *= i
+        }
+        return result
     }
 }
